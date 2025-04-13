@@ -179,7 +179,7 @@ export default function GameScreen() {
 
         {/* Message */}
         {message && (
-          <Text className="text-3xl text-center my-5 text-primary-600 font-semibold">
+          <Text className="text-2xl text-center my-5 text-primary-600 font-semibold">
             {message}
           </Text>
         )}
