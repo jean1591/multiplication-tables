@@ -28,6 +28,9 @@ export default function GameScreen() {
   const [message, setMessage] = useState("");
   const [showConfetti, setShowConfetti] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [lastClickedAnswer, setLastClickedAnswer] = useState<number | null>(
+    null
+  );
 
   const loadBestScore = async () => {
     try {
@@ -73,11 +76,13 @@ export default function GameScreen() {
     setTimeLeft(TIMER_DURATION);
     setGameOver(false);
     setMessage("");
+    setLastClickedAnswer(null);
   }, []);
 
   const handleAnswer = (selectedAnswer: number) => {
     if (gameOver) return;
 
+    setLastClickedAnswer(selectedAnswer);
     const correctAnswer = currentNumber * multiplier;
 
     if (selectedAnswer === correctAnswer) {
@@ -116,6 +121,9 @@ export default function GameScreen() {
             Math.floor(Math.random() * encouragingMessages.failure.length)
           ]
         );
+        setTimeout(() => {
+          setLastClickedAnswer(null);
+        }, 500);
       }
     }
   };
@@ -187,19 +195,18 @@ export default function GameScreen() {
             key={index}
             className={`w-[48%] p-5 rounded-xl mb-4 items-center ${
               gameOver && option === currentNumber * multiplier
-                ? "bg-green-500"
+                ? "bg-green-500/50"
+                : option === currentNumber * multiplier && showConfetti
+                ? "bg-green-500/50"
+                : lastClickedAnswer === option &&
+                  option !== currentNumber * multiplier
+                ? "bg-red-500/30"
                 : "bg-gray-100"
             }`}
             onPress={() => handleAnswer(option)}
             disabled={gameOver}
           >
-            <Text
-              className={`text-2xl font-semibold ${
-                gameOver && option === currentNumber * multiplier
-                  ? "text-white"
-                  : "text-gray-800"
-              }`}
-            >
+            <Text className="text-2xl font-semibold text-gray-800">
               {option}
             </Text>
           </TouchableOpacity>
