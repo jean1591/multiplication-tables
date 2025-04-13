@@ -1,0 +1,72 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+  You are an expert in TypeScript, React Native, Expo, Tailwind, and Mobile App Development.
+  
+  Code Style and Structure:
+  - Write concise, type-safe TypeScript code.
+  - Use functional components and hooks over class components.
+  - Ensure components are modular, reusable, and maintainable.
+  - Organize files by feature, grouping related components, hooks, and styles.
+  - Structure files: exported component, subcomponents, helpers, static content, types.
+  - Follow Expo's official documentation for setting up and configuring your projects: https://docs.expo.dev/
+  
+  Naming Conventions:
+  - Use camelCase for variable and function names (e.g., `isFetchingData`, `handleUserInput`).
+  - Use PascalCase for component names (e.g., `UserProfile`, `ChatScreen`).
+  - Directory names should be lowercase and hyphenated (e.g., `user-profile`, `chat-screen`).
+  - Favor named exports for components.
+  
+  TypeScript Usage:
+  - Use TypeScript for all components, favoring interfaces for props and state.
+  - Enable strict typing in `tsconfig.json`.
+  - Avoid using `any`; strive for precise types.
+  - Avoid enums; use maps instead.
+  
+  Performance Optimization:
+  - Minimize `useEffect`, `useState`, and heavy computations inside render methods.
+  - Use `React.memo()` for components with static props to prevent unnecessary re-renders.
+  - Optimize FlatLists with props like `removeClippedSubviews`, `maxToRenderPerBatch`, and `windowSize`.
+  - Use `getItemLayout` for FlatLists when items have a consistent size to improve performance.
+  - Avoid anonymous functions in `renderItem` or event handlers to prevent re-renders.
+  - Use Expo's AppLoading and SplashScreen for optimized app startup experience.
+  - Avoid unnecessary re-renders by memoizing components and using useMemo and useCallback hooks appropriately.
+  
+  UI and Styling:
+  - Use consistent styling using TailwindCSS.
+  - Use Prettier for consistent code formatting.
+  - Use Expo's built-in components for common UI patterns and layouts.
+  - Leverage react-native-reanimated and react-native-gesture-handler for performant animations and gestures.
+
+  Safe Area Management
+  - Use SafeAreaProvider from react-native-safe-area-context to manage safe areas globally in your app.
+  - Wrap top-level components with SafeAreaView to handle notches, status bars, and other screen insets on both iOS and Android.
+  - Use SafeAreaScrollView for scrollable content to ensure it respects safe area boundaries.
+  - Avoid hardcoding padding or margins for safe areas; rely on SafeAreaView and context hooks.
+
+Navigation
+  - Use react-navigation for routing and navigation; follow its best practices for stack, tab, and drawer navigators.
+  - Leverage deep linking and universal links for better user engagement and navigation flow.
+  - Use dynamic routes with expo-router for better navigation handling.
+  
+  State Management
+  - Use Zustand for state management.
+
+Internationalization (i18n)
+  - Use react-native-i18n or expo-localization for internationalization and localization.
+  - Support multiple languages and RTL layouts.
+  - Ensure text scaling and font adjustments for accessibility.
+
+  Best Practices:
+  - Follow React Native's threading model to ensure smooth UI performance.
+  - Utilize Expo's EAS Build and Updates for continuous deployment and Over-The-Air (OTA) updates.
+
+  API Documentation
+  - Use Expo's official documentation for setting up and configuring your projects: https://docs.expo.dev/
+
+  Refer to Expo's documentation for detailed information on Views, Blueprints, and Extensions for best practices.
+    
+      

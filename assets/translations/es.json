@@ -1,0 +1,175 @@
+{
+  "common": {
+    "back": "Volver",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "done": "Hecho",
+    "edit": "Modificar",
+    "error": "Error",
+    "no": "No",
+    "retry": "Reintentar",
+    "saving": "Guardando...",
+    "yes": "Sí"
+  },
+  "firearmProfile": {
+    "delete": {
+      "button": "Eliminar perfil de arma",
+      "confirmation": "¿Estás seguro de que deseas eliminar este perfil de arma?",
+      "title": "Eliminar perfil de arma"
+    },
+    "details": {
+      "ammoType": "Munición",
+      "model": "Modelo",
+      "notFound": "Perfil de arma no encontrado",
+      "optics": "Ópticas",
+      "sessions": "Sesiones",
+      "suppressor": "Supresor",
+      "title": "Detalles del perfil de arma"
+    },
+    "form": {
+      "ammoType": "Tipo de munición",
+      "ammoTypePlaceholder": "p. ej. 9mm, 5.56 NATO",
+      "brand": "Marca",
+      "brandPlaceholder": "p. ej. Glock, Colt",
+      "createError": "Ocurrió un error al crear el perfil",
+      "missingInfo": "Información faltante",
+      "model": "Modelo",
+      "modelPlaceholder": "p. ej. 19, 1911",
+      "name": "Nombre del perfil",
+      "namePlaceholder": "p. ej. Glock 19, AR-15",
+      "optics": "Ópticas",
+      "opticsPlaceholder": "p. ej. Red Dot, 3-9x Scope",
+      "requiredFields": "Por favor, completa todos los campos requeridos: Nombre del perfil, Marca, Modelo y Tipo de munición",
+      "saveButton": "Guardar perfil de arma",
+      "suppressor": "Supresor",
+      "suppressorDescription": "¿Se utiliza este arma con un supresor?",
+      "updateError": "Ocurrió un error al actualizar el perfil"
+    },
+    "list": {
+      "brandModel": "{brand} - {model}",
+      "sessionCount": "{count} sesión(es)",
+      "suppressed": "Supresor"
+    }
+  },
+  "firearmProfiles": {
+    "details": "Detalles del perfil de arma",
+    "edit": "Editar perfil de arma",
+    "empty": "El armario está vacío. Toca el botón de arriba para crear uno.",
+    "new": "Nuevo perfil de arma",
+    "title": "Armario"
+  },
+  "home": {
+    "armory": "Armario",
+    "dashboard": "Tablero",
+    "newFirearmProfile": "Nuevo perfil de arma",
+    "newSession": "Nueva sesión",
+    "noProfiles": "No hay perfiles de arma aún",
+    "noSessions": "No hay sesiones aún",
+    "recentSessions": "Sesiones recientes",
+    "viewAll": "Ver todo"
+  },
+  "session": {
+    "details": {
+      "ammoType": "Munición",
+      "notFound": "Sesión no encontrada",
+      "optics": "Ópticas",
+      "suppressor": "Supresor",
+      "title": "Detalles de la sesión"
+    },
+    "distance": "{distance}m",
+    "rounds": "{rounds} disparos",
+    "score": "{score} puntos"
+  },
+  "sessionForm": {
+    "accuracy": "Precisión (%)",
+    "accuracyPlaceholder": "p. ej. 95",
+    "ammoType": "Tipo de munición",
+    "ammoTypePlaceholder": "p. ej. 9mm, 5.56 NATO",
+    "brand": "Marca",
+    "brandPlaceholder": "p. ej. Glock, Colt",
+    "createError": "Ocurrió un error al crear la sesión",
+    "date": "Fecha",
+    "deleteSession": "Eliminar sesión",
+    "distance": "Distancia (m)",
+    "distancePlaceholder": "p. ej. 150",
+    "firearmName": "Nombre del arma",
+    "firearmNamePlaceholder": "p. ej. Glock 19, AR-15",
+    "firearmProfile": "Perfil de arma",
+    "missingInfo": "Información faltante",
+    "requiredFields": "Por favor, completa todos los campos requeridos: Nombre del arma, Marca y Tipo de munición",
+    "roundsFired": "Disparos realizados",
+    "roundsFiredPlaceholder": "p. ej. 150",
+    "saveSession": "Guardar sesión",
+    "saving": "Guardando...",
+    "score": "Puntuación",
+    "scorePlaceholder": "p. ej. 64",
+    "selectFirearm": "Seleccionar un arma",
+    "suppressor": "Supresor",
+    "suppressorDescription": "¿Se utilizó un supresor durante esta sesión?",
+    "updateError": "Ocurrió un error al actualizar la sesión",
+    "updateSession": "Actualizar sesión",
+    "useExistingProfile": "Usar perfil de arma existente"
+  },
+  "sessions": {
+    "details": "Detalles de la sesión",
+    "edit": "Editar sesión",
+    "empty": "No hay sesiones de entrenamiento aún. Toca el botón de arriba para crear una.",
+    "new": "Nueva sesión",
+    "title": "Sesiones de entrenamiento"
+  },
+  "stats": {
+    "bulletDistance": "Distancia recorrida por tus balas",
+    "distanceFormatted": "({value} {unit})",
+    "distanceInMeters": "{distance} m",
+    "favoriteFirearm": "Arma favorita",
+    "max": "Máx",
+    "nextMilestone": "Próximo hito: {milestone}",
+    "noSessions": "Aún no hay sesiones registradas",
+    "roundsFired": "Disparos realizados",
+    "sessionsCount": "{current}/{goal}",
+    "trainingSessions": "Sesiones de entrenamiento",
+    "yourProgress": "Tu progreso"
+  },
+  "settings": {
+    "selectLanguage": "Seleccionar idioma",
+    "active": "Activo",
+    "language": "Idioma"
+  },
+  "onboarding": {
+    "createFirearmProfile": {
+      "title": "Crear un perfil de arma",
+      "description": "Añadir detalles sobre tu primera arma",
+      "whyCreate": {
+        "title": "¿Por qué crear un perfil?",
+        "description": "Tracking de tus armas te ayuda a monitorear su uso y mantenimiento."
+      },
+      "benefits": {
+        "maintenance": "Crear un plan de mantenimiento",
+        "ammunition": "Monitorear el consumo de munición",
+        "performance": "Registrar el rendimiento del tiro"
+      },
+      "createButton": "Crear perfil de arma",
+      "skipButton": "Omitir por ahora"
+    },
+    "logFirstSession": {
+      "title": "Registrar tu primera sesión",
+      "description": "Registrar detalles sobre tu sesión de tiro",
+      "whyLog": {
+        "title": "¿Por qué registrar tus sesiones?",
+        "description": "Tracking de tus sesiones de tiro te ayuda a mejorar tus habilidades y monitorear tu progreso."
+      },
+      "benefits": {
+        "accuracy": "Seguir tus mejoras en precisión",
+        "ammunition": "Monitorear el consumo de munición",
+        "patterns": "Identificar patrones de entrenamiento"
+      },
+      "logButton": "Registrar una sesión",
+      "skipButton": "Omitir por ahora"
+    },
+    "layout": {
+      "title": "Empezar",
+      "stepProgress": "Paso {current} de {total}",
+      "skipOnboarding": "Omitir onboarding"
+    }
+  }
+}

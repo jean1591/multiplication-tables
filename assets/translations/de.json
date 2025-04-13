@@ -1,0 +1,175 @@
+{
+  "common": {
+    "back": "Zurück",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "done": "Fertig",
+    "edit": "Bearbeiten",
+    "error": "Fehler",
+    "no": "Nein",
+    "retry": "Erneut versuchen",
+    "saving": "Speichern...",
+    "yes": "Ja"
+  },
+  "firearmProfile": {
+    "delete": {
+      "button": "Waffenprofil löschen",
+      "confirmation": "Bist du sicher, dass du dieses Waffenprofil löschen möchtest?",
+      "title": "Waffenprofil löschen"
+    },
+    "details": {
+      "ammoType": "Munition",
+      "model": "Modell",
+      "notFound": "Waffenprofil nicht gefunden",
+      "optics": "Optik",
+      "sessions": "Sitzungen",
+      "suppressor": "Schalldämpfer",
+      "title": "Waffenprofil Details"
+    },
+    "form": {
+      "ammoType": "Munitionsart",
+      "ammoTypePlaceholder": "z. B. 9mm, 5.56 NATO",
+      "brand": "Marke",
+      "brandPlaceholder": "z. B. Glock, Colt",
+      "createError": "Beim Erstellen des Profils ist ein Fehler aufgetreten",
+      "missingInfo": "Fehlende Informationen",
+      "model": "Modell",
+      "modelPlaceholder": "z. B. 19, 1911",
+      "name": "Waffenname",
+      "namePlaceholder": "z. B. Glock 19, AR-15",
+      "optics": "Optik",
+      "opticsPlaceholder": "z. B. Red Dot, 3-9x Scope",
+      "requiredFields": "Bitte fülle alle erforderlichen Felder aus: Profilname, Marke, Modell und Munitionsart",
+      "saveButton": "Waffenprofil speichern",
+      "suppressor": "Schalldämpfer",
+      "suppressorDescription": "Wird diese Waffe mit einem Schalldämpfer verwendet?",
+      "updateError": "Beim Aktualisieren des Profils ist ein Fehler aufgetreten"
+    },
+    "list": {
+      "brandModel": "{brand} - {model}",
+      "sessionCount": "{count} Sitzung(en)",
+      "suppressed": "Schalldämpfer"
+    }
+  },
+  "firearmProfiles": {
+    "details": "Waffenprofil Details",
+    "edit": "Waffenprofil bearbeiten",
+    "empty": "Das Waffenlager ist leer. Tippe auf den obenstehenden Button, um eines zu erstellen.",
+    "new": "Neues Waffenprofil",
+    "title": "Waffenlager"
+  },
+  "home": {
+    "armory": "Waffenlager",
+    "dashboard": "Dashboard",
+    "newFirearmProfile": "Neues Waffenprofil",
+    "newSession": "Neue Sitzung",
+    "noProfiles": "Noch keine Waffenprofile",
+    "noSessions": "Noch keine Sitzungen",
+    "recentSessions": "Kürzliche Sitzungen",
+    "viewAll": "Alle ansehen"
+  },
+  "session": {
+    "details": {
+      "ammoType": "Munition",
+      "notFound": "Sitzung nicht gefunden",
+      "optics": "Optik",
+      "suppressor": "Schalldämpfer",
+      "title": "Sitzungsdetails"
+    },
+    "distance": "{distance}m",
+    "rounds": "{rounds} Schüsse",
+    "score": "{score} Punkte"
+  },
+  "sessionForm": {
+    "accuracy": "Genauigkeit (%)",
+    "accuracyPlaceholder": "z. B. 95",
+    "ammoType": "Munitionsart",
+    "ammoTypePlaceholder": "z. B. 9mm, 5.56 NATO",
+    "brand": "Marke",
+    "brandPlaceholder": "z. B. Glock, Colt",
+    "createError": "Beim Erstellen der Sitzung ist ein Fehler aufgetreten",
+    "date": "Datum",
+    "deleteSession": "Sitzung löschen",
+    "distance": "Distanz (m)",
+    "distancePlaceholder": "z. B. 150",
+    "firearmName": "Waffenname",
+    "firearmNamePlaceholder": "z. B. Glock 19, AR-15",
+    "firearmProfile": "Waffenprofil",
+    "missingInfo": "Fehlende Informationen",
+    "requiredFields": "Bitte fülle alle erforderlichen Felder aus: Waffenname, Marke und Munitionsart",
+    "roundsFired": "Abgefeuerte Schüsse",
+    "roundsFiredPlaceholder": "z. B. 150",
+    "saveSession": "Sitzung speichern",
+    "saving": "Speichern...",
+    "score": "Punktzahl",
+    "scorePlaceholder": "z. B. 64",
+    "selectFirearm": "Waffe auswählen",
+    "suppressor": "Schalldämpfer",
+    "suppressorDescription": "Wurde ein Schalldämpfer während dieser Sitzung verwendet?",
+    "updateError": "Beim Aktualisieren der Sitzung ist ein Fehler aufgetreten",
+    "updateSession": "Sitzung aktualisieren",
+    "useExistingProfile": "Vorhandenes Waffenprofil verwenden"
+  },
+  "sessions": {
+    "details": "Sitzungsdetails",
+    "edit": "Sitzung bearbeiten",
+    "empty": "Noch keine Trainingseinheiten. Tippe auf den Button oben, um eine zu erstellen.",
+    "new": "Neue Sitzung",
+    "title": "Trainingseinheiten"
+  },
+  "stats": {
+    "bulletDistance": "Zurückgelegte Geschossstrecke",
+    "distanceFormatted": "({value} {unit})",
+    "distanceInMeters": "{distance} m",
+    "favoriteFirearm": "Lieblingswaffe",
+    "max": "Max",
+    "nextMilestone": "Nächster Meilenstein: {milestone}",
+    "noSessions": "Noch keine Sitzungen aufgezeichnet",
+    "roundsFired": "Abgefeuerte Schüsse",
+    "sessionsCount": "{current}/{goal}",
+    "trainingSessions": "Trainingssitzungen",
+    "yourProgress": "Dein Fortschritt"
+  },
+  "settings": {
+    "selectLanguage": "Sprache auswählen",
+    "active": "Aktiv",
+    "language": "Sprache"
+  },
+  "onboarding": {
+    "createFirearmProfile": {
+      "title": "Waffenprofil erstellen",
+      "description": "Details über deine erste Waffe hinzufügen",
+      "whyCreate": {
+        "title": "Warum ein Profil erstellen?",
+        "description": "Tracking deiner Waffen hilft dir, ihre Verwendung und Pflege zu überwachen."
+      },
+      "benefits": {
+        "maintenance": "Wartungsplan erstellen",
+        "ammunition": "Munitionsverbrauch überwachen",
+        "performance": "Schießleistung dokumentieren"
+      },
+      "createButton": "Waffenprofil erstellen",
+      "skipButton": "Jetzt überspringen"
+    },
+    "logFirstSession": {
+      "title": "Erste Sitzung protokollieren",
+      "description": "Details über deine Schießsitzung protokollieren",
+      "whyLog": {
+        "title": "Warum Sitzungen protokollieren?",
+        "description": "Tracking deiner Schießsitzungen hilft dir, deine Fähigkeiten zu verbessern und deinen Fortschritt zu überwachen."
+      },
+      "benefits": {
+        "accuracy": "Genauigkeitsverbesserungen nachverfolgen",
+        "ammunition": "Munitionsverbrauch überwachen",
+        "patterns": "Trainingsmuster identifizieren"
+      },
+      "logButton": "Sitzung protokollieren",
+      "skipButton": "Jetzt überspringen"
+    },
+    "layout": {
+      "title": "Erste Schritte",
+      "stepProgress": "Schritt {current} von {total}",
+      "skipOnboarding": "Onboarding überspringen"
+    }
+  }
+}

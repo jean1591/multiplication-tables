@@ -1,0 +1,175 @@
+{
+  "common": {
+    "back": "Retour",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "done": "Terminé",
+    "edit": "Modifier",
+    "error": "Erreur",
+    "no": "Non",
+    "retry": "Réessayer",
+    "saving": "Enregistrement...",
+    "yes": "Oui"
+  },
+  "firearmProfile": {
+    "delete": {
+      "button": "Supprimer le profil d'arme",
+      "confirmation": "Êtes-vous sûr de vouloir supprimer ce profil d'arme ?",
+      "title": "Supprimer le profil d'arme"
+    },
+    "details": {
+      "ammoType": "Munitions",
+      "model": "Modèle",
+      "notFound": "Profil d'arme introuvable",
+      "optics": "Optiques",
+      "sessions": "Séances",
+      "suppressor": "Réducteur de son",
+      "title": "Détails du profil d'arme"
+    },
+    "form": {
+      "ammoType": "Type de munitions",
+      "ammoTypePlaceholder": "ex. 9mm, 5.56 NATO",
+      "brand": "Marque",
+      "brandPlaceholder": "ex. Glock, Colt",
+      "createError": "Une erreur s'est produite lors de la création du profil",
+      "missingInfo": "Informations manquantes",
+      "model": "Modèle",
+      "modelPlaceholder": "ex. 19, 1911",
+      "name": "Nom du profil",
+      "namePlaceholder": "ex. Glock 19, AR-15",
+      "optics": "Optiques",
+      "opticsPlaceholder": "ex. Red Dot, 3-9x Scope",
+      "requiredFields": "Veuillez remplir tous les champs obligatoires : Nom du profil, Marque, Modèle et Type de munitions",
+      "saveButton": "Enregistrer le profil d'arme",
+      "suppressor": "Réducteur de son",
+      "suppressorDescription": "Cette arme est-elle utilisée avec un réducteur de son ?",
+      "updateError": "Une erreur s'est produite lors de la mise à jour du profil"
+    },
+    "list": {
+      "brandModel": "{brand} - {model}",
+      "sessionCount": "{count} séance(s)",
+      "suppressed": "Réducteur de son"
+    }
+  },
+  "firearmProfiles": {
+    "details": "Détails du profil d'arme",
+    "edit": "Modifier le profil d'arme",
+    "empty": "L'armurerie est vide. Appuyez sur le bouton ci-dessus pour créer un nouveau profil d'arme.",
+    "new": "Nouveau profil d'arme",
+    "title": "Armurerie"
+  },
+  "home": {
+    "armory": "Armurerie",
+    "dashboard": "Tableau de bord",
+    "newFirearmProfile": "Nouveau profil d'arme",
+    "newSession": "Nouvelle séance",
+    "noProfiles": "Aucun profil d'arme pour l'instant",
+    "noSessions": "Aucune séance pour l'instant",
+    "recentSessions": "Séances récentes",
+    "viewAll": "Voir tout"
+  },
+  "session": {
+    "details": {
+      "ammoType": "Munitions",
+      "notFound": "Séance introuvable",
+      "optics": "Optiques",
+      "suppressor": "Réducteur de son",
+      "title": "Détails de la séance"
+    },
+    "distance": "{distance}m",
+    "rounds": "{rounds} balles",
+    "score": "{score} points"
+  },
+  "sessionForm": {
+    "accuracy": "Précision (%)",
+    "accuracyPlaceholder": "ex. 95",
+    "ammoType": "Type de munitions",
+    "ammoTypePlaceholder": "ex. 9mm, 5.56 NATO",
+    "brand": "Marque",
+    "brandPlaceholder": "ex. Glock, Colt",
+    "createError": "Une erreur s'est produite lors de la création de la séance",
+    "date": "Date",
+    "deleteSession": "Supprimer la séance",
+    "distance": "Distance (m)",
+    "distancePlaceholder": "ex. 150",
+    "firearmName": "Nom de l'arme",
+    "firearmNamePlaceholder": "ex. Glock 19, AR-15",
+    "firearmProfile": "Profil d'arme",
+    "missingInfo": "Informations manquantes",
+    "requiredFields": "Veuillez remplir tous les champs obligatoires : Nom de l'arme, Marque et Type de munitions",
+    "roundsFired": "Balles tirées",
+    "roundsFiredPlaceholder": "ex. 150",
+    "saveSession": "Enregistrer la séance",
+    "saving": "Enregistrement...",
+    "score": "Score",
+    "scorePlaceholder": "ex. 64",
+    "selectFirearm": "Sélectionner une arme",
+    "suppressor": "Réducteur de son",
+    "suppressorDescription": "Un réducteur de son a-t-il été utilisé pendant cette séance ?",
+    "updateError": "Une erreur s'est produite lors de la mise à jour de la séance",
+    "updateSession": "Mettre à jour la séance",
+    "useExistingProfile": "Utiliser un profil d'arme existant"
+  },
+  "sessions": {
+    "details": "Détails de la séance",
+    "edit": "Modifier la séance",
+    "empty": "Aucune séance d'entraînement pour le moment. Appuyez sur le bouton ci-dessus pour en créer une.",
+    "new": "Nouvelle séance",
+    "title": "Séances d'entraînement"
+  },
+  "stats": {
+    "bulletDistance": "Distance parcourue par vos balles",
+    "distanceFormatted": "({value} {unit})",
+    "distanceInMeters": "{distance} m",
+    "favoriteFirearm": "Arme préférée",
+    "max": "Max",
+    "nextMilestone": "Prochain jalon : {milestone}",
+    "noSessions": "Aucune session enregistrée pour le moment",
+    "roundsFired": "Balles tirées",
+    "sessionsCount": "{current}/{goal}",
+    "trainingSessions": "Sessions d'entraînement",
+    "yourProgress": "Votre progression"
+  },
+  "settings": {
+    "selectLanguage": "Sélectionner la langue",
+    "active": "Actif",
+    "language": "Langue"
+  },
+  "onboarding": {
+    "createFirearmProfile": {
+      "title": "Créer un profil d'arme",
+      "description": "Ajouter des détails sur votre première arme",
+      "whyCreate": {
+        "title": "Pourquoi créer un profil?",
+        "description": "Le suivi de vos armes vous aide à surveiller leur utilisation et leur maintenance."
+      },
+      "benefits": {
+        "maintenance": "Créer un plan de maintenance",
+        "ammunition": "Surveiller la consommation de munitions",
+        "performance": "Enregistrer les performances de tir"
+      },
+      "createButton": "Créer un profil d'arme",
+      "skipButton": "Passer pour le moment"
+    },
+    "logFirstSession": {
+      "title": "Enregistrer votre première séance",
+      "description": "Enregistrer les détails de votre séance de tir",
+      "whyLog": {
+        "title": "Pourquoi enregistrer vos séances?",
+        "description": "Le suivi de vos séances de tir vous aide à améliorer vos compétences et à surveiller votre progression."
+      },
+      "benefits": {
+        "accuracy": "Suivre vos améliorations en précision",
+        "ammunition": "Surveiller le consommation de munitions",
+        "patterns": "Identifier les patrons de tir"
+      },
+      "logButton": "Enregistrer une séance",
+      "skipButton": "Passer pour le moment"
+    },
+    "layout": {
+      "title": "Premiers pas",
+      "stepProgress": "Étape {current} sur {total}",
+      "skipOnboarding": "Passer toutes les étapes"
+    }
+  }
+}

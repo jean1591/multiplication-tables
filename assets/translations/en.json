@@ -1,0 +1,170 @@
+{
+  "common": {
+    "back": "Back",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "done": "Done",
+    "edit": "Edit",
+    "error": "Error",
+    "no": "No",
+    "retry": "Retry",
+    "saving": "Saving...",
+    "yes": "Yes"
+  },
+  "firearmProfile": {
+    "delete": {
+      "button": "Delete Firearm Profile",
+      "confirmation": "Are you sure you want to delete this firearm profile?",
+      "title": "Delete Firearm Profile"
+    },
+    "details": {
+      "ammoType": "Ammunition",
+      "model": "Model",
+      "notFound": "Firearm Profile not found",
+      "optics": "Optics",
+      "sessions": "Sessions",
+      "suppressor": "Suppressor",
+      "title": "Firearm Profile Details"
+    },
+    "form": {
+      "ammoType": "Ammunition Type",
+      "ammoTypePlaceholder": "e.g. 9mm, 5.56 NATO",
+      "brand": "Brand",
+      "brandPlaceholder": "e.g. Glock, Colt",
+      "createError": "An error occurred while creating the profile",
+      "missingInfo": "Missing Information",
+      "model": "Model",
+      "modelPlaceholder": "e.g. 19, 1911",
+      "name": "Profile Name",
+      "namePlaceholder": "e.g. Glock 19, AR-15",
+      "optics": "Optics",
+      "opticsPlaceholder": "e.g. Red Dot, 3-9x Scope",
+      "requiredFields": "Please fill in all required fields: Profile Name, Brand, Model, and Ammo Type",
+      "saveButton": "Save Firearm Profile",
+      "suppressor": "Suppressor",
+      "suppressorDescription": "Is this firearm used with a suppressor?",
+      "updateError": "An error occurred while updating the profile"
+    },
+    "list": {
+      "brandModel": "{brand} - {model}",
+      "sessionCount": "{count} session(s)",
+      "suppressed": "Suppressed"
+    }
+  },
+  "firearmProfiles": {
+    "details": "Firearm Profile Details",
+    "edit": "Edit Firearm Profile",
+    "empty": "Armory is empty. Tap the button above to create one.",
+    "new": "New Firearm Profile",
+    "title": "Armory"
+  },
+  "home": {
+    "armory": "Armory",
+    "dashboard": "Dashboard",
+    "newFirearmProfile": "New Firearm Profile",
+    "newSession": "New Session",
+    "noProfiles": "No firearm profiles yet",
+    "noSessions": "No sessions yet",
+    "recentSessions": "Recent Sessions",
+    "viewAll": "View All"
+  },
+  "session": {
+    "details": {
+      "ammoType": "Ammunition",
+      "notFound": "Session not found",
+      "optics": "Optics",
+      "suppressor": "Suppressor",
+      "title": "Session Details"
+    },
+    "distance": "{distance}m",
+    "rounds": "{rounds} rounds",
+    "score": "{score} points"
+  },
+  "sessionForm": {
+    "accuracy": "Accuracy (%)",
+    "accuracyPlaceholder": "e.g. 95",
+    "ammoType": "Ammunition Type",
+    "ammoTypePlaceholder": "e.g. 9mm, 5.56 NATO",
+    "brand": "Brand",
+    "brandPlaceholder": "e.g. Glock, Colt",
+    "createError": "An error occurred while creating the session",
+    "date": "Date",
+    "deleteSession": "Delete Session",
+    "distance": "Distance (m)",
+    "distancePlaceholder": "e.g. 150",
+    "firearmName": "Firearm Name",
+    "firearmNamePlaceholder": "e.g. Glock 19, AR-15",
+    "firearmProfile": "Firearm Profile",
+    "missingInfo": "Missing Information",
+    "requiredFields": "Please fill in all required fields: Firearm Name, Brand, and Ammo Type",
+    "roundsFired": "Rounds Fired",
+    "roundsFiredPlaceholder": "e.g. 150",
+    "saveSession": "Save Session",
+    "saving": "Saving...",
+    "score": "Score",
+    "scorePlaceholder": "e.g. 64",
+    "selectFirearm": "Select a firearm",
+    "suppressor": "Suppressor",
+    "suppressorDescription": "Was a suppressor used during this session?",
+    "updateError": "An error occurred while updating the session",
+    "updateSession": "Update Session",
+    "useExistingProfile": "Use existing firearm profile"
+  },
+  "sessions": {
+    "details": "Session Details",
+    "edit": "Edit Session",
+    "empty": "No training sessions yet. Tap the button above to create one.",
+    "new": "New Session",
+    "title": "Training Sessions"
+  },
+  "stats": {
+    "bulletDistance": "Bullet distance traveled",
+    "distanceFormatted": "({value} {unit})",
+    "distanceInMeters": "{distance} m",
+    "favoriteFirearm": "Favorite firearm",
+    "max": "Max",
+    "nextMilestone": "Next milestone: {milestone}",
+    "noSessions": "No sessions recorded yet",
+    "roundsFired": "Rounds fired",
+    "sessionsCount": "{current}/{goal}",
+    "trainingSessions": "Training sessions",
+    "yourProgress": "Your progress"
+  },
+  "onboarding": {
+    "createFirearmProfile": {
+      "title": "Create a firearm profile",
+      "description": "Add details about your first firearm",
+      "whyCreate": {
+        "title": "Why create a profile?",
+        "description": "Tracking your firearms helps you monitor their usage and maintenance."
+      },
+      "benefits": {
+        "maintenance": "Track maintenance schedules",
+        "ammunition": "Monitor ammunition usage",
+        "performance": "Record shooting performance"
+      },
+      "createButton": "Create firearm profile",
+      "skipButton": "Skip for now"
+    },
+    "logFirstSession": {
+      "title": "Log your first session",
+      "description": "Record details about your shooting session",
+      "whyLog": {
+        "title": "Why log your sessions?",
+        "description": "Tracking your shooting sessions helps you improve your skills and monitor progress."
+      },
+      "benefits": {
+        "accuracy": "Track accuracy improvements",
+        "ammunition": "Monitor ammunition usage",
+        "patterns": "Identify training patterns"
+      },
+      "logButton": "Log a session",
+      "skipButton": "Skip for now"
+    },
+    "layout": {
+      "title": "Getting Started",
+      "stepProgress": "Step {current} of {total}",
+      "skipOnboarding": "Skip onboarding"
+    }
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "common": {
+    "back": "Indietro",
+    "cancel": "Annulla",
+    "delete": "Elimina",
+    "done": "Fatto",
+    "edit": "Modifica",
+    "error": "Errore",
+    "no": "No",
+    "retry": "Riprova",
+    "saving": "Salvataggio...",
+    "yes": "Sì"
+  },
+  "firearmProfile": {
+    "delete": {
+      "button": "Elimina profilo arma",
+      "confirmation": "Sei sicuro di voler eliminare questo profilo arma?",
+      "title": "Elimina profilo arma"
+    },
+    "details": {
+      "ammoType": "Munizione",
+      "model": "Modello",
+      "notFound": "Profilo arma non trovato",
+      "optics": "Ottiche",
+      "sessions": "Sessioni",
+      "suppressor": "Silenziatore",
+      "title": "Dettagli profilo arma"
+    },
+    "form": {
+      "ammoType": "Tipo di munizione",
+      "ammoTypePlaceholder": "es. 9mm, 5.56 NATO",
+      "brand": "Marca",
+      "brandPlaceholder": "es. Glock, Colt",
+      "createError": "Si è verificato un errore durante la creazione del profilo",
+      "missingInfo": "Informazioni mancanti",
+      "model": "Modello",
+      "modelPlaceholder": "es. 19, 1911",
+      "name": "Nome arma",
+      "namePlaceholder": "es. Glock 19, AR-15",
+      "optics": "Ottiche",
+      "opticsPlaceholder": "es. Red Dot, 3-9x Scope",
+      "requiredFields": "Compila tutti i campi obbligatori: Nome profilo, Marca, Modello e Tipo di munizione",
+      "saveButton": "Salva profilo arma",
+      "suppressor": "Silenziatore",
+      "suppressorDescription": "Questa arma è usata con un silenziatore?",
+      "updateError": "Si è verificato un errore durante l'aggiornamento del profilo"
+    },
+    "list": {
+      "brandModel": "{brand} - {model}",
+      "sessionCount": "{count} sessione(i)",
+      "suppressed": "Silenziato"
+    }
+  },
+  "firearmProfiles": {
+    "details": "Dettagli profilo arma",
+    "edit": "Modifica profilo arma",
+    "empty": "L'armadio è vuoto. Tocca il pulsante sopra per crearne uno.",
+    "new": "Nuovo profilo arma",
+    "title": "Armadio"
+  },
+  "home": {
+    "armory": "Armadio",
+    "dashboard": "Cruscotto",
+    "newFirearmProfile": "Nuovo profilo arma",
+    "newSession": "Nuova sessione",
+    "noProfiles": "Ancora nessun profilo arma",
+    "noSessions": "Ancora nessuna sessione",
+    "recentSessions": "Sessioni recenti",
+    "viewAll": "Vedi tutto"
+  },
+  "session": {
+    "details": {
+      "ammoType": "Munizione",
+      "notFound": "Sessione non trovata",
+      "optics": "Ottiche",
+      "suppressor": "Silenziatore",
+      "title": "Dettagli sessione"
+    },
+    "distance": "{distance}m",
+    "rounds": "{rounds} colpi",
+    "score": "{score} punti"
+  },
+  "sessionForm": {
+    "accuracy": "Accuratezza (%)",
+    "accuracyPlaceholder": "es. 95",
+    "ammoType": "Tipo di munizione",
+    "ammoTypePlaceholder": "es. 9mm, 5.56 NATO",
+    "brand": "Marca",
+    "brandPlaceholder": "es. Glock, Colt",
+    "createError": "Si è verificato un errore durante la creazione della sessione",
+    "date": "Data",
+    "deleteSession": "Elimina sessione",
+    "distance": "Distanza (m)",
+    "distancePlaceholder": "es. 150",
+    "firearmName": "Nome arma",
+    "firearmNamePlaceholder": "es. Glock 19, AR-15",
+    "firearmProfile": "Profilo arma",
+    "missingInfo": "Informazioni mancanti",
+    "requiredFields": "Compila tutti i campi obbligatori: Nome arma, Marca e Tipo di munizione",
+    "roundsFired": "Colpi sparati",
+    "roundsFiredPlaceholder": "es. 150",
+    "saveSession": "Salva sessione",
+    "saving": "Salvataggio...",
+    "score": "Punteggio",
+    "scorePlaceholder": "es. 64",
+    "selectFirearm": "Seleziona un'arma",
+    "suppressor": "Silenziatore",
+    "suppressorDescription": "È stato usato un silenziatore durante questa sessione?",
+    "updateError": "Si è verificato un errore durante l'aggiornamento della sessione",
+    "updateSession": "Aggiorna sessione",
+    "useExistingProfile": "Usa profilo arma esistente"
+  },
+  "sessions": {
+    "details": "Dettagli sessione",
+    "edit": "Modifica sessione",
+    "empty": "Ancora nessuna sessione di allenamento. Tocca il pulsante sopra per crearne una.",
+    "new": "Nuova sessione",
+    "title": "Sessioni di allenamento"
+  },
+  "stats": {
+    "bulletDistance": "Distanza percorsa dalle vostre palline",
+    "distanceFormatted": "({value} {unit})",
+    "distanceInMeters": "{distance} m",
+    "favoriteFirearm": "Arma preferita",
+    "max": "Max",
+    "nextMilestone": "Prossima pietra miliare: {milestone}",
+    "noSessions": "Nessuna sessione registrata",
+    "roundsFired": "Colpi sparati",
+    "sessionsCount": "{current}/{goal}",
+    "trainingSessions": "Sessioni di allenamento",
+    "yourProgress": "I tuoi progressi"
+  },
+  "settings": {
+    "selectLanguage": "Seleziona lingua",
+    "active": "Attivo",
+    "language": "Lingua"
+  },
+  "onboarding": {
+    "createFirearmProfile": {
+      "title": "Crea un profilo d'arma",
+      "description": "Aggiungi dettagli sulla tua prima arma",
+      "whyCreate": {
+        "title": "Perché creare un profilo?",
+        "description": "Tracking delle tue armi ti aiuta a monitorare il loro uso e il loro mantenimento."
+      },
+      "benefits": {
+        "maintenance": "Crea un piano di manutenzione",
+        "ammunition": "Monitora il consumo di munizioni",
+        "performance": "Registra le prestazioni del tiro"
+      },
+      "createButton": "Crea profilo d'arma",
+      "skipButton": "Salta per ora"
+    },
+    "logFirstSession": {
+      "title": "Registra la tua prima sessione",
+      "description": "Registra i dettagli della tua sessione di tiro",
+      "whyLog": {
+        "title": "Perché registrare le tue sessioni?",
+        "description": "Tracking delle tue sessioni di tiro ti aiuta a migliorare le tue abilità e a monitorare il tuo progresso."
+      },
+      "benefits": {
+        "accuracy": "Segui le tue migliorie in precisione",
+        "ammunition": "Monitora il consumo di munizioni",
+        "patterns": "Identifica i pattern di allenamento"
+      },
+      "logButton": "Registra una sessione",
+      "skipButton": "Salta per ora"
+    },
+    "layout": {
+      "title": "Primi passi",
+      "stepProgress": "Passo {current} di {total}",
+      "skipOnboarding": "Salta onboarding"
+    }
+  }
+}

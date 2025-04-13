@@ -1,0 +1,53 @@
+{
+  "expo": {
+    "name": "multiplication-table",
+    "slug": "multiplication-table",
+    "version": "1.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "com.jr2.multiplication-table",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3a08c99e-8cfd-4683-8ab4-739b73e688bc"
+      }
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jr2.multiplication-table",
+      "infoPlist": {
+        "CFBundleAllowMixedLocalizations": true
+      }
+    },
+    "locales": {
+      "en": "./assets/translations/ios/en.json",
+      "fr": "./assets/translations/ios/fr.json",
+      "de": "./assets/translations/ios/de.json",
+      "es": "./assets/translations/ios/es.json",
+      "it": "./assets/translations/ios/it.json",
+      "pt": "./assets/translations/ios/pt.json"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/splash-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.jr2.multiplication-table"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-localization",
+      "expo-build-properties",
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
