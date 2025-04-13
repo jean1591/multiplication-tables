@@ -248,10 +248,19 @@ export default function GameScreen() {
 
       {/* New Game Button */}
       <TouchableOpacity
-        className="bg-primary-500 p-4 rounded-xl items-center mb-5"
+        className={`p-4 rounded-xl items-center mb-5 ${
+          gameOver ? "bg-primary-500" : "bg-gray-300"
+        }`}
         onPress={startNewGame}
+        disabled={!gameOver}
       >
-        <Text className="text-white text-lg font-semibold">Recommencer</Text>
+        <Text
+          className={`text-lg font-semibold ${
+            gameOver ? "text-white" : "text-gray-500"
+          }`}
+        >
+          Recommencer
+        </Text>
       </TouchableOpacity>
 
       {showConfetti && (
