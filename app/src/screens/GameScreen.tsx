@@ -213,9 +213,21 @@ export default function GameScreen() {
         ))}
       </View>
 
+      {/* Remaining Tries Dots */}
+      <View className="flex-row justify-center mb-5">
+        {Array.from({ length: MAX_TRIES }).map((_, index) => (
+          <View
+            key={index}
+            className={`w-3 h-3 rounded-full mx-1 ${
+              index < MAX_TRIES - remainingTries ? "bg-red-500" : "bg-red-200"
+            }`}
+          />
+        ))}
+      </View>
+
       {/* Message */}
       {message && (
-        <Text className="text-lg text-center my-5 text-primary-600 font-semibold">
+        <Text className="text-3xl text-center my-5 text-primary-600 font-semibold">
           {message}
         </Text>
       )}
@@ -239,7 +251,7 @@ export default function GameScreen() {
         className="bg-primary-500 p-4 rounded-xl items-center mb-5"
         onPress={startNewGame}
       >
-        <Text className="text-white text-lg font-semibold">Nouveau jeu</Text>
+        <Text className="text-white text-lg font-semibold">Recommencer</Text>
       </TouchableOpacity>
 
       {showConfetti && (
