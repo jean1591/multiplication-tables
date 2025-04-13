@@ -23,7 +23,7 @@ interface GameState {
   resetGame: () => void;
 }
 
-export const useGameStore = create<GameState>((set, get) => ({
+const useGameStore = create<GameState>((set, get) => ({
   currentNumber: 0,
   multiplier: 0,
   score: 0,
@@ -81,3 +81,6 @@ export const useGameStore = create<GameState>((set, get) => ({
       userInput: "",
     }),
 }));
+
+export { useGameStore };
+export default useGameStore;

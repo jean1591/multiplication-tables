@@ -6,12 +6,12 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Star, Trophy, X } from "lucide-react-native";
 import { useCallback, useEffect, useState } from "react";
 
 import { LinearGradient } from "expo-linear-gradient";
 import { ScrollView } from "react-native-gesture-handler";
 import VirtualKeyboard from "../components/VirtualKeyboard";
-import { X } from "lucide-react-native";
 import { useGameStore } from "../store/useGameStore";
 
 const TIMER_DURATION = 10000;
@@ -214,7 +214,7 @@ export default function GameScreen() {
     <View className="flex-1 bg-indigo-50">
       <ScrollView className="flex-1 p-4">
         {/* Timer Bar */}
-        <View className="h-2 bg-primary-100 rounded overflow-hidden mb-10">
+        <View className="h-2 bg-primary-100 rounded overflow-hidden mb-8">
           <LinearGradient
             colors={
               timeLeft <= 5000 ? ["#FED7D7", "#FEB2B2"] : ["#E9D5FF", "#C4B5FD"]
@@ -276,24 +276,34 @@ export default function GameScreen() {
       {/* Fixed Bottom Section */}
       <View className="p-4 bg-white border-t rounded-t-3xl border-gray-200">
         {/* Virtual Keyboard */}
-        <VirtualKeyboard
-          onKeyPress={handleKeyPress}
-          onBackspace={handleBackspace}
-          onSubmit={handleSubmit}
-          disabled={gameOver}
-        />
+        <View className="mb-4">
+          <VirtualKeyboard
+            onKeyPress={handleKeyPress}
+            onBackspace={handleBackspace}
+            onSubmit={handleSubmit}
+            disabled={gameOver}
+          />
+        </View>
 
         {/* Score Section */}
-        <View className="flex-row justify-around mt-auto mb-5">
+        <View className="flex-row justify-around mb-4 bg-amber-50 rounded-xl py-2">
           <View className="items-center">
             <Text className="text-base text-gray-500 mb-1">Score</Text>
-            <Text className="text-2xl font-bold text-primary-600">{score}</Text>
+            <View className="flex flex-row gap-2 items-center justify-center">
+              <Star size={16} color="#fb7185" strokeWidth={2} />
+              <Text className="text-2xl font-bold text-primary-600">
+                {score}
+              </Text>
+            </View>
           </View>
           <View className="items-center">
             <Text className="text-base text-gray-500 mb-1">Meilleur</Text>
-            <Text className="text-2xl font-bold text-primary-600">
-              {bestScore}
-            </Text>
+            <View className="flex flex-row gap-2 items-center justify-center">
+              <Trophy size={16} color="#fb7185" strokeWidth={2} />
+              <Text className="text-2xl font-bold text-primary-600">
+                {bestScore}
+              </Text>
+            </View>
           </View>
         </View>
 
