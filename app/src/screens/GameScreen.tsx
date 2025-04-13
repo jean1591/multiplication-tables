@@ -7,7 +7,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import ConfettiCannon from "react-native-confetti-cannon";
 import { LinearGradient } from "expo-linear-gradient";
 
-const TIMER_DURATION = 300;
+const TIMER_DURATION = 15000;
 const MAX_TRIES = 3;
 
 const encouragingMessages = {
@@ -136,7 +136,7 @@ export default function GameScreen() {
 
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
-        if (prev <= 1) {
+        if (prev <= 100) {
           clearInterval(timer);
           setGameOver(true);
           setMessage(
@@ -146,9 +146,9 @@ export default function GameScreen() {
           );
           return 0;
         }
-        return prev - 1;
+        return prev - 100;
       });
-    }, 50);
+    }, 100);
 
     return () => clearInterval(timer);
   }, [currentNumber, multiplier, gameOver]);
@@ -163,9 +163,7 @@ export default function GameScreen() {
       <View className="h-2 bg-primary-100 rounded overflow-hidden mb-10">
         <LinearGradient
           colors={
-            timeLeft <= TIMER_DURATION * 0.1
-              ? ["#FED7D7", "#FEB2B2"]
-              : ["#E9D5FF", "#C4B5FD"]
+            timeLeft <= 5000 ? ["#FED7D7", "#FEB2B2"] : ["#E9D5FF", "#C4B5FD"]
           }
           className="h-full rounded"
           style={{ width: `${(timeLeft / TIMER_DURATION) * 100}%` }}
