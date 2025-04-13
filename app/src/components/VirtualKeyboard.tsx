@@ -41,7 +41,7 @@ export default function VirtualKeyboard({
       </View>
       <View className="w-1/3 items-center">
         <TouchableOpacity
-          className="w-28 h-14 bg-primary-500 rounded-xl items-center justify-center m-1"
+          className="w-28 h-14 bg-primary-500/75 rounded-xl items-center justify-center m-1"
           onPress={onSubmit}
           disabled={disabled}
         >

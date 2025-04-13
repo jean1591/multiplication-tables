@@ -1,15 +1,16 @@
 import * as Haptics from "expo-haptics";
 
 import { Dimensions, Text, TouchableOpacity, View } from "react-native";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import ConfettiCannon from "react-native-confetti-cannon";
 import { LinearGradient } from "expo-linear-gradient";
 import { ScrollView } from "react-native-gesture-handler";
 import VirtualKeyboard from "../components/VirtualKeyboard";
+import { X } from "lucide-react-native";
 import { useGameStore } from "../store/useGameStore";
 
-const TIMER_DURATION = 15000;
+const TIMER_DURATION = 10000;
 const MAX_TRIES = 3;
 
 const encouragingMessages = {
@@ -44,6 +45,7 @@ export default function GameScreen() {
 
   const [message, setMessage] = useState("");
   const [showConfetti, setShowConfetti] = useState(false);
+  const [isTimerExpired, setIsTimerExpired] = useState(false);
 
   const generateQuestion = useCallback(() => {
     const num1 = Math.floor(Math.random() * 10) + 1;
@@ -123,29 +125,67 @@ export default function GameScreen() {
   }, []);
 
   useEffect(() => {
+    if (isTimerExpired && !gameOver) {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+      decrementTries();
+
+      if (remainingTries - 1 <= 0) {
+        setGameOver(true);
+        setMessage(
+          `Le temps est écoulé ! La réponse était ${
+            currentNumber * multiplier
+          }. ${
+            encouragingMessages.finalFailure[
+              Math.floor(
+                Math.random() * encouragingMessages.finalFailure.length
+              )
+            ]
+          }`
+        );
+      } else {
+        setMessage(
+          `Le temps est écoulé ! ${
+            encouragingMessages.failure[
+              Math.floor(Math.random() * encouragingMessages.failure.length)
+            ]
+          }`
+        );
+        clearUserInput();
+        generateQuestion();
+      }
+      setIsTimerExpired(false);
+    }
+  }, [
+    isTimerExpired,
+    gameOver,
+    remainingTries,
+    currentNumber,
+    multiplier,
+    generateQuestion,
+  ]);
+
+  useEffect(() => {
     if (gameOver) return;
+    setIsTimerExpired(false);
 
     const timer = setInterval(() => {
       setTimeLeft((prev: number) => {
         if (prev <= 100) {
           clearInterval(timer);
-          setGameOver(true);
-          setMessage(
-            `Le temps est écoulé ! La réponse était ${
-              currentNumber * multiplier
-            }.`
-          );
+          setIsTimerExpired(true);
           return 0;
         }
         return prev - 100;
       });
     }, 100);
 
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+    };
   }, [currentNumber, multiplier, gameOver]);
 
   return (
-    <View className="flex-1 bg-white">
+    <View className="flex-1 bg-indigo-50">
       <ScrollView className="flex-1 p-4">
         {/* Timer Bar */}
         <View className="h-2 bg-primary-100 rounded overflow-hidden mb-10">
@@ -159,8 +199,8 @@ export default function GameScreen() {
         </View>
 
         {/* Question */}
-        <View className="items-center my-12">
-          <Text className="text-7xl font-bold text-primary-600 mb-2.5">
+        <View className="items-center my-8">
+          <Text className="text-7xl font-bold text-primary-500 mb-2.5">
             {`${currentNumber} × ${multiplier} = ${userInput || "?"}`}
           </Text>
         </View>
@@ -168,12 +208,15 @@ export default function GameScreen() {
         {/* Remaining Tries Dots */}
         <View className="flex-row justify-center mb-8">
           {Array.from({ length: MAX_TRIES }).map((_, index) => (
-            <View
-              key={index}
-              className={`w-3 h-3 rounded-full mx-1 ${
-                index < MAX_TRIES - remainingTries ? "bg-red-500" : "bg-red-200"
-              }`}
-            />
+            <View key={index} className="mx-1">
+              <X
+                size={24}
+                color={
+                  index < MAX_TRIES - remainingTries ? "#EF4444" : "#E5E7EB"
+                }
+                strokeWidth={3}
+              />
+            </View>
           ))}
         </View>
 
@@ -186,7 +229,7 @@ export default function GameScreen() {
       </ScrollView>
 
       {/* Fixed Bottom Section */}
-      <View className="p-4 bg-white border-t border-gray-200">
+      <View className="p-4 bg-white border-t rounded-t-3xl border-gray-200">
         {/* Virtual Keyboard */}
         <VirtualKeyboard
           onKeyPress={handleKeyPress}
@@ -212,7 +255,7 @@ export default function GameScreen() {
         {/* New Game Button */}
         <TouchableOpacity
           className={`p-4 rounded-xl items-center mt-4 ${
-            gameOver ? "bg-primary-500" : "bg-gray-300"
+            gameOver ? "bg-primary-500/75" : "bg-gray-300"
           }`}
           onPress={startNewGame}
           disabled={!gameOver}
