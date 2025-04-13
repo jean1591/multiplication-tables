@@ -3,9 +3,11 @@ import * as Haptics from "expo-haptics";
 import { Dimensions, Text, TouchableOpacity, View } from "react-native";
 import { useCallback, useEffect, useState } from "react";
 
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import ConfettiCannon from "react-native-confetti-cannon";
 import { LinearGradient } from "expo-linear-gradient";
+import { ScrollView } from "react-native-gesture-handler";
+import VirtualKeyboard from "../components/VirtualKeyboard";
+import { useGameStore } from "../store/useGameStore";
 
 const TIMER_DURATION = 15000;
 const MAX_TRIES = 3;
@@ -18,74 +20,59 @@ const encouragingMessages = {
 };
 
 export default function GameScreen() {
-  const [currentNumber, setCurrentNumber] = useState(0);
-  const [multiplier, setMultiplier] = useState(0);
-  const [options, setOptions] = useState<number[]>([]);
-  const [score, setScore] = useState(0);
-  const [bestScore, setBestScore] = useState(0);
-  const [remainingTries, setRemainingTries] = useState(MAX_TRIES);
-  const [timeLeft, setTimeLeft] = useState(TIMER_DURATION);
+  const {
+    currentNumber,
+    multiplier,
+    score,
+    bestScore,
+    remainingTries,
+    timeLeft,
+    gameOver,
+    userInput,
+    setUserInput,
+    clearUserInput,
+    setCurrentNumber,
+    setMultiplier,
+    incrementScore,
+    decrementTries,
+    setTimeLeft,
+    setGameOver,
+    loadBestScore,
+    saveBestScore,
+    resetGame,
+  } = useGameStore();
+
   const [message, setMessage] = useState("");
   const [showConfetti, setShowConfetti] = useState(false);
-  const [gameOver, setGameOver] = useState(false);
-  const [lastClickedAnswer, setLastClickedAnswer] = useState<number | null>(
-    null
-  );
-
-  const loadBestScore = async () => {
-    try {
-      const savedScore = await AsyncStorage.getItem("bestScore");
-      if (savedScore) {
-        setBestScore(parseInt(savedScore, 10));
-      }
-    } catch (error) {
-      console.error("Error loading best score:", error);
-    }
-  };
-
-  const saveBestScore = async (newScore: number) => {
-    try {
-      if (newScore > bestScore) {
-        await AsyncStorage.setItem("bestScore", newScore.toString());
-        setBestScore(newScore);
-      }
-    } catch (error) {
-      console.error("Error saving best score:", error);
-    }
-  };
 
   const generateQuestion = useCallback(() => {
     const num1 = Math.floor(Math.random() * 10) + 1;
     const num2 = Math.floor(Math.random() * 10) + 1;
-    const correctAnswer = num1 * num2;
-
-    let wrongAnswers = new Set<number>();
-    while (wrongAnswers.size < 3) {
-      const wrong = Math.floor(Math.random() * 100) + 1;
-      if (wrong !== correctAnswer) {
-        wrongAnswers.add(wrong);
-      }
-    }
-
-    const allOptions = [...Array.from(wrongAnswers), correctAnswer];
-    const shuffledOptions = allOptions.sort(() => Math.random() - 0.5);
-
     setCurrentNumber(num1);
     setMultiplier(num2);
-    setOptions(shuffledOptions);
     setTimeLeft(TIMER_DURATION);
     setGameOver(false);
     setMessage("");
-    setLastClickedAnswer(null);
+    clearUserInput();
   }, []);
 
-  const handleAnswer = (selectedAnswer: number) => {
+  const handleKeyPress = (key: string) => {
+    if (gameOver) return;
+    setUserInput(userInput + key);
+  };
+
+  const handleBackspace = () => {
+    if (gameOver) return;
+    setUserInput(userInput.slice(0, -1));
+  };
+
+  const handleSubmit = () => {
     if (gameOver) return;
 
-    setLastClickedAnswer(selectedAnswer);
     const correctAnswer = currentNumber * multiplier;
+    const userAnswer = parseInt(userInput, 10);
 
-    if (selectedAnswer === correctAnswer) {
+    if (userAnswer === correctAnswer) {
       setShowConfetti(true);
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
       setMessage(
@@ -93,7 +80,7 @@ export default function GameScreen() {
           Math.floor(Math.random() * encouragingMessages.success.length)
         ]
       );
-      setScore((prev) => prev + 1);
+      incrementScore();
       saveBestScore(score + 1);
       setTimeout(() => {
         setShowConfetti(false);
@@ -101,10 +88,9 @@ export default function GameScreen() {
       }, 2000);
     } else {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
-      const newRemainingTries = remainingTries - 1;
-      setRemainingTries(newRemainingTries);
+      decrementTries();
 
-      if (newRemainingTries <= 0) {
+      if (remainingTries - 1 <= 0) {
         setGameOver(true);
         setMessage(
           `La réponse était ${correctAnswer}. ${
@@ -121,16 +107,13 @@ export default function GameScreen() {
             Math.floor(Math.random() * encouragingMessages.failure.length)
           ]
         );
-        setTimeout(() => {
-          setLastClickedAnswer(null);
-        }, 500);
+        clearUserInput();
       }
     }
   };
 
   const startNewGame = () => {
-    setScore(0);
-    setRemainingTries(MAX_TRIES);
+    resetGame();
     generateQuestion();
   };
 
@@ -143,7 +126,7 @@ export default function GameScreen() {
     if (gameOver) return;
 
     const timer = setInterval(() => {
-      setTimeLeft((prev) => {
+      setTimeLeft((prev: number) => {
         if (prev <= 100) {
           clearInterval(timer);
           setGameOver(true);
@@ -162,106 +145,87 @@ export default function GameScreen() {
   }, [currentNumber, multiplier, gameOver]);
 
   return (
-    <View className="flex-1 bg-white p-5">
-      <Text className="text-2xl font-bold text-center text-primary-500 mt-10 mb-5">
-        Tables de Multiplication
-      </Text>
-
-      {/* Timer Bar */}
-      <View className="h-2 bg-primary-100 rounded overflow-hidden mb-10">
-        <LinearGradient
-          colors={
-            timeLeft <= 5000 ? ["#FED7D7", "#FEB2B2"] : ["#E9D5FF", "#C4B5FD"]
-          }
-          className="h-full rounded"
-          style={{ width: `${(timeLeft / TIMER_DURATION) * 100}%` }}
-        />
-      </View>
-
-      {/* Question */}
-      <View className="items-center mb-10">
-        <Text className="text-5xl font-bold text-primary-600 mb-2.5">
-          {`${currentNumber} × ${multiplier} = ?`}
-        </Text>
-        <Text className="text-lg text-gray-500">
-          Combien font {currentNumber} multiplié par {multiplier} ?
-        </Text>
-      </View>
-
-      {/* Options */}
-      <View className="flex-row flex-wrap justify-between mb-8">
-        {options.map((option, index) => (
-          <TouchableOpacity
-            key={index}
-            className={`w-[48%] p-5 rounded-xl mb-4 items-center ${
-              gameOver && option === currentNumber * multiplier
-                ? "bg-green-500/50"
-                : option === currentNumber * multiplier && showConfetti
-                ? "bg-green-500/50"
-                : lastClickedAnswer === option &&
-                  option !== currentNumber * multiplier
-                ? "bg-red-500/30"
-                : "bg-gray-100"
-            }`}
-            onPress={() => handleAnswer(option)}
-            disabled={gameOver}
-          >
-            <Text className="text-2xl font-semibold text-gray-800">
-              {option}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-
-      {/* Remaining Tries Dots */}
-      <View className="flex-row justify-center mb-5">
-        {Array.from({ length: MAX_TRIES }).map((_, index) => (
-          <View
-            key={index}
-            className={`w-3 h-3 rounded-full mx-1 ${
-              index < MAX_TRIES - remainingTries ? "bg-red-500" : "bg-red-200"
-            }`}
+    <View className="flex-1 bg-white">
+      <ScrollView className="flex-1 p-4">
+        {/* Timer Bar */}
+        <View className="h-2 bg-primary-100 rounded overflow-hidden mb-10">
+          <LinearGradient
+            colors={
+              timeLeft <= 5000 ? ["#FED7D7", "#FEB2B2"] : ["#E9D5FF", "#C4B5FD"]
+            }
+            className="h-full rounded"
+            style={{ width: `${(timeLeft / TIMER_DURATION) * 100}%` }}
           />
-        ))}
-      </View>
-
-      {/* Message */}
-      {message && (
-        <Text className="text-3xl text-center my-5 text-primary-600 font-semibold">
-          {message}
-        </Text>
-      )}
-
-      {/* Score Section */}
-      <View className="flex-row justify-around mt-auto mb-5">
-        <View className="items-center">
-          <Text className="text-base text-gray-500 mb-1">Score</Text>
-          <Text className="text-2xl font-bold text-primary-600">{score}</Text>
         </View>
-        <View className="items-center">
-          <Text className="text-base text-gray-500 mb-1">Meilleur</Text>
-          <Text className="text-2xl font-bold text-primary-600">
-            {bestScore}
+
+        {/* Question */}
+        <View className="items-center my-12">
+          <Text className="text-7xl font-bold text-primary-600 mb-2.5">
+            {`${currentNumber} × ${multiplier} = ${userInput || "?"}`}
           </Text>
         </View>
-      </View>
 
-      {/* New Game Button */}
-      <TouchableOpacity
-        className={`p-4 rounded-xl items-center mb-5 ${
-          gameOver ? "bg-primary-500" : "bg-gray-300"
-        }`}
-        onPress={startNewGame}
-        disabled={!gameOver}
-      >
-        <Text
-          className={`text-lg font-semibold ${
-            gameOver ? "text-white" : "text-gray-500"
+        {/* Remaining Tries Dots */}
+        <View className="flex-row justify-center mb-8">
+          {Array.from({ length: MAX_TRIES }).map((_, index) => (
+            <View
+              key={index}
+              className={`w-3 h-3 rounded-full mx-1 ${
+                index < MAX_TRIES - remainingTries ? "bg-red-500" : "bg-red-200"
+              }`}
+            />
+          ))}
+        </View>
+
+        {/* Message */}
+        {message && (
+          <Text className="text-3xl text-center my-5 text-primary-600 font-semibold">
+            {message}
+          </Text>
+        )}
+      </ScrollView>
+
+      {/* Fixed Bottom Section */}
+      <View className="p-4 bg-white border-t border-gray-200">
+        {/* Virtual Keyboard */}
+        <VirtualKeyboard
+          onKeyPress={handleKeyPress}
+          onBackspace={handleBackspace}
+          onSubmit={handleSubmit}
+          disabled={gameOver}
+        />
+
+        {/* Score Section */}
+        <View className="flex-row justify-around mt-auto mb-5">
+          <View className="items-center">
+            <Text className="text-base text-gray-500 mb-1">Score</Text>
+            <Text className="text-2xl font-bold text-primary-600">{score}</Text>
+          </View>
+          <View className="items-center">
+            <Text className="text-base text-gray-500 mb-1">Meilleur</Text>
+            <Text className="text-2xl font-bold text-primary-600">
+              {bestScore}
+            </Text>
+          </View>
+        </View>
+
+        {/* New Game Button */}
+        <TouchableOpacity
+          className={`p-4 rounded-xl items-center mt-4 ${
+            gameOver ? "bg-primary-500" : "bg-gray-300"
           }`}
+          onPress={startNewGame}
+          disabled={!gameOver}
         >
-          Recommencer
-        </Text>
-      </TouchableOpacity>
+          <Text
+            className={`text-lg font-semibold ${
+              gameOver ? "text-white" : "text-gray-500"
+            }`}
+          >
+            Recommencer
+          </Text>
+        </TouchableOpacity>
+      </View>
 
       {showConfetti && (
         <ConfettiCannon
