@@ -1,9 +1,13 @@
 import * as Haptics from "expo-haptics";
 
-import { Dimensions, Text, TouchableOpacity, View } from "react-native";
-import { useCallback, useEffect, useRef, useState } from "react";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from "react-native-reanimated";
+import { Image, Text, TouchableOpacity, View } from "react-native";
+import { useCallback, useEffect, useState } from "react";
 
-import ConfettiCannon from "react-native-confetti-cannon";
 import { LinearGradient } from "expo-linear-gradient";
 import { ScrollView } from "react-native-gesture-handler";
 import VirtualKeyboard from "../components/VirtualKeyboard";
@@ -44,8 +48,21 @@ export default function GameScreen() {
   } = useGameStore();
 
   const [message, setMessage] = useState("");
-  const [showConfetti, setShowConfetti] = useState(false);
   const [isTimerExpired, setIsTimerExpired] = useState(false);
+
+  const buddyTranslateY = useSharedValue(200);
+  const buddyScale = useSharedValue(0.8);
+  const buddyOpacity = useSharedValue(0);
+
+  const buddyStyle = useAnimatedStyle(() => {
+    return {
+      transform: [
+        { translateY: buddyTranslateY.value },
+        { scale: buddyScale.value },
+      ],
+      opacity: buddyOpacity.value,
+    };
+  });
 
   const generateQuestion = useCallback(() => {
     const num1 = Math.floor(Math.random() * 10) + 1;
@@ -56,6 +73,9 @@ export default function GameScreen() {
     setGameOver(false);
     setMessage("");
     clearUserInput();
+    buddyOpacity.value = 0;
+    buddyTranslateY.value = 200;
+    buddyScale.value = 0.8;
   }, []);
 
   const handleKeyPress = (key: string) => {
@@ -75,8 +95,11 @@ export default function GameScreen() {
     const userAnswer = parseInt(userInput, 10);
 
     if (userAnswer === correctAnswer) {
-      setShowConfetti(true);
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      buddyOpacity.value = withSpring(1);
+      buddyTranslateY.value = withSpring(60, { damping: 12 });
+      buddyScale.value = withSpring(1.4, { damping: 8 });
+
       setMessage(
         encouragingMessages.success[
           Math.floor(Math.random() * encouragingMessages.success.length)
@@ -84,8 +107,11 @@ export default function GameScreen() {
       );
       incrementScore();
       saveBestScore(score + 1);
+
       setTimeout(() => {
-        setShowConfetti(false);
+        buddyOpacity.value = withSpring(0);
+        buddyTranslateY.value = withSpring(200);
+        buddyScale.value = withSpring(0.8);
         generateQuestion();
       }, 2000);
     } else {
@@ -205,6 +231,25 @@ export default function GameScreen() {
           </Text>
         </View>
 
+        {/* Buddy Animation Container */}
+        <Animated.View
+          style={[
+            {
+              position: "absolute",
+              width: "100%",
+              alignItems: "center",
+              zIndex: 10,
+            },
+            buddyStyle,
+          ]}
+        >
+          <Image
+            source={require("../../../assets/images/buddy.png")}
+            style={{ width: 160, height: 160 }}
+            resizeMode="contain"
+          />
+        </Animated.View>
+
         {/* Remaining Tries Dots */}
         <View className="flex-row justify-center mb-8">
           {Array.from({ length: MAX_TRIES }).map((_, index) => (
@@ -269,18 +314,6 @@ export default function GameScreen() {
           </Text>
         </TouchableOpacity>
       </View>
-
-      {showConfetti && (
-        <ConfettiCannon
-          count={50}
-          origin={{
-            x: Dimensions.get("window").width / 2,
-            y: Dimensions.get("window").height,
-          }}
-          autoStart={true}
-          fadeOut={true}
-        />
-      )}
     </View>
   );
 }
